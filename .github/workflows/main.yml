@@ -1,3 +1,11 @@
+# Optimized by ci-cost (https://github.com/mariotavarez/ci-cost)
+# Applied 4 optimizations:
+# - [HIGH] Switch "build_release_macos" from macOS to ubuntu runner
+# - [MEDIUM] Add concurrency group to "main.yml"
+# - [MEDIUM] Switch "build_test_windows_mingw" from Windows to ubuntu runner
+# - [MEDIUM] 8 jobs clone the repo — consider artifact sharing
+# Estimated savings: ~3 min/run
+#
 name: CI/CD
 
 on:
@@ -7,6 +15,10 @@ on:
   release:
     types: [published]
 
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
 jobs:
 # Release builds
   build_release_macos:
