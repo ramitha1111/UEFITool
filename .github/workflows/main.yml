@@ -12,6 +12,7 @@ jobs:
   build_release_macos:
     name: Release build (macOS universal, static Qt 6.5.0)
     runs-on: macos-latest
+    timeout-minutes: 15
     steps:
       - uses: actions/checkout@v6
       - name: Get Qt
@@ -83,6 +84,7 @@ jobs:
   build_release_linux:
     name: Release build (Linux x64, shared Qt 6)
     runs-on: ubuntu-22.04
+    timeout-minutes: 15
     steps:
       - uses: actions/checkout@v6
       - name: Get Qt
@@ -125,6 +127,7 @@ jobs:
   build_release_freebsd:
     name: Release build (FreeBSD x64, shared Qt 6)
     runs-on: ubuntu-latest
+    timeout-minutes: 15
     steps:
       - uses: actions/checkout@v6
       - name: Setup VM
@@ -165,6 +168,7 @@ jobs:
   build_release_windows_32:
     name: Release build (Win32, static Qt 5.6.3)
     runs-on: windows-2022
+    timeout-minutes: 15
     steps:
       - uses: actions/checkout@v6 
       - name: Get Qt 5.6.3
@@ -260,6 +264,7 @@ jobs:
   build_release_windows_64:
     name: Release build (Win64, static Qt 6.5.0)
     runs-on: windows-2022
+    timeout-minutes: 15
     steps:
       - uses: actions/checkout@v6 
       - name: Get Qt 6.5.0
@@ -310,6 +315,7 @@ jobs:
   build_test_linux_meson:
     name: Meson build system test (shared Qt 5)
     runs-on: ubuntu-22.04
+    timeout-minutes: 15
     steps:
       - uses: actions/checkout@v6
       - name: Get Deps
@@ -324,6 +330,7 @@ jobs:
   build_test_windows_mingw:
     name: MinGW compiler test (shared Qt 6.5.0)
     runs-on: windows-2022
+    timeout-minutes: 15
     steps:
       - uses: actions/checkout@v6
       - name: Install Qt
@@ -341,6 +348,7 @@ jobs:
   build_test_linux_fuzzer:
     name: Fuzzer build test (Clang, Linux x64)
     runs-on: ubuntu-22.04
+    timeout-minutes: 15
     steps:
       - uses: actions/checkout@v6
       - name: Create build directory
